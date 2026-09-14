@@ -12,12 +12,15 @@
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.6-2f80ed?style=flat-square">
   <img alt="macOS Apple Silicon" src="https://img.shields.io/badge/macOS-Apple%20Silicon-111111?style=flat-square&logo=apple">
+  <img alt="Windows x64" src="https://img.shields.io/badge/Windows-10%20%2F%2011-0078d4?style=flat-square&logo=windows11">
   <img alt="Offline first" src="https://img.shields.io/badge/privacy-offline%20first-16a085?style=flat-square">
   <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-f4b942?style=flat-square">
 </p>
 
 <p align="center">
   <a href="../../releases/latest/download/TriScribe_0.1.6_macOS_AppleSilicon.dmg"><strong>⬇️ 下载 macOS Apple 芯片版</strong></a>
+  ·
+  <a href="../../releases/latest/download/TriScribe_0.1.6_Windows_x64_Setup.exe"><strong>⬇️ 下载 Windows x64 版</strong></a>
   ·
   <a href="../../releases/latest">查看最新版本</a>
   ·
@@ -61,7 +64,9 @@ TriScribe 采用 offline-first 设计。默认设置下：
 - 首次下载识别模型和主动检查更新时需要联网，但不会上传录音。
 - 只有用户主动关闭严格离线模式、配置第三方 API 并启用 AI 后处理时，文字才会发送给所选服务商。
 
-## 安装 macOS 测试版
+## 安装测试版
+
+### macOS（Apple Silicon）
 
 1. 下载 [TriScribe v0.1.6 for Apple Silicon](../../releases/latest/download/TriScribe_0.1.6_macOS_AppleSilicon.dmg)。
 2. 打开 DMG，把 `TriScribe.app` 拖入“应用程序”。
@@ -78,6 +83,15 @@ TriScribe 采用 offline-first 设计。默认设置下：
 - macOS 11 或更高版本
 - 首次下载模型需要网络；之后可离线识别
 - 建议预留至少 2GB 可用空间给应用、模型与录音历史
+
+### Windows（x64）
+
+1. 下载 [TriScribe v0.1.6 Windows x64 安装程序](../../releases/latest/download/TriScribe_0.1.6_Windows_x64_Setup.exe)。
+2. 运行安装程序并按提示完成安装。
+3. 如果 Windows SmartScreen 出现保护提示，选择“更多信息 → 仍要运行”。
+4. 打开 TriScribe，在模型页下载并选择 SenseVoice，然后设置全局快捷键即可开始听写。
+
+Windows 版适用于 Windows 10 / 11 x64。首次下载模型需要网络，模型准备完成后即可离线识别。
 
 ## 推荐设置
 
@@ -131,6 +145,7 @@ cd src-tauri && cargo test
 - [x] Minimal／Live 悬浮窗
 - [x] DeepSeek 等 OpenAI 兼容 API 后处理
 - [x] macOS Apple Silicon 测试包
+- [x] Windows 10 / 11 x64 测试包
 - [ ] 真实香港口音语料的公开基准报告
 
 准确率不能只靠模型名称保证。正式场景请使用真实设备与真实口音语料，分别验证普通话 CER、粤语 MER、英语 WER、术语准确率和整体实时率；仓库提供了可复用的[验收测试计划](docs/验收测试计划.md)。
@@ -155,6 +170,6 @@ TriScribe 由 **陈传扬（Chen Chuanyang）** 维护。
 
 TriScribe is a free, offline-first desktop dictation app for Mandarin, Hong Kong Cantonese, English, and everyday code-switching. It supports global hotkeys, spoken punctuation, Simplified/Traditional Chinese output, local filler-word cleanup, custom terminology, and optional OpenAI-compatible post-processing.
 
-The current downloadable beta targets Apple Silicon Macs. Audio and transcripts stay local by default. See the privacy section above for the exact network boundary.
+The current downloadable beta supports Apple Silicon Macs and Windows 10/11 x64 PCs. Audio and transcripts stay local by default. See the privacy section above for the exact network boundary.
 
 </details>
