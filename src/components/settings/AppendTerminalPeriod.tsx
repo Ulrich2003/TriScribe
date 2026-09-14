@@ -17,9 +17,7 @@ export const AppendTerminalPeriod: React.FC<AppendTerminalPeriodProps> =
     return (
       <ToggleSwitch
         checked={enabled}
-        onChange={(checked) =>
-          updateSetting("append_terminal_period", checked)
-        }
+        onChange={(checked) => updateSetting("append_terminal_period", checked)}
         isUpdating={isUpdating("append_terminal_period")}
         label={t("settings.debug.appendTerminalPeriod.label")}
         description={t("settings.debug.appendTerminalPeriod.description")}
@@ -28,4 +26,3 @@ export const AppendTerminalPeriod: React.FC<AppendTerminalPeriodProps> =
       />
     );
   });
-

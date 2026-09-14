@@ -27,4 +27,3 @@ export const OfflinePrivacyMode: React.FC<OfflinePrivacyModeProps> = React.memo(
     );
   },
 );
-
