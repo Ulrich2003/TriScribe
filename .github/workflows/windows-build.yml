@@ -1,0 +1,17 @@
+name: "Windows x64 Build"
+
+on: workflow_dispatch
+
+jobs:
+  build-windows-x64:
+    permissions:
+      contents: read
+    uses: ./.github/workflows/build.yml
+    with:
+      platform: "windows-latest"
+      target: "x86_64-pc-windows-msvc"
+      build-args: ""
+      sign-binaries: false
+      asset-prefix: "triscribe-windows"
+      upload-artifacts: true
+      no-cache: true
