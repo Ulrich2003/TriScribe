@@ -1,0 +1,18 @@
+[package]
+name = "hover-activate-example"
+version = "2.1.0"
+description = "Demonstrates auto-activate panel on hover with mouse tracking"
+authors = ["Victor Aremu <me@victorare.mu>"]
+repository = ""
+edition = "2021"
+rust-version = "1.75"
+
+[dependencies]
+tauri = { workspace = true, features = [] }
+tauri-nspanel = { path = "../../../" }
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[features]
+cargo-clippy = []

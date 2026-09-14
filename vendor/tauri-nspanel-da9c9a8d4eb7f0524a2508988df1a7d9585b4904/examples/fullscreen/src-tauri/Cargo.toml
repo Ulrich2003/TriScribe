@@ -1,0 +1,17 @@
+[package]
+name = "fullscreen-example"
+version = "2.1.0"
+description = "Demonstrates panel behavior with fullscreen windows"
+authors = ["Victor Aremu <me@victorare.mu>"]
+edition = "2021"
+rust-version = "1.75"
+
+[dependencies]
+tauri = { workspace = true }
+tauri-nspanel = { path = "../../../" }
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[features]
+cargo-clippy = []

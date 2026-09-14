@@ -1,0 +1,30 @@
+name: Audit
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches:
+      - v2.1
+      - v2
+      - v1
+    paths:
+      - "**/Cargo.lock"
+      - "**/Cargo.toml"
+  pull_request:
+    branches:
+      - v2.1
+      - v2
+      - v1
+    paths:
+      - "**/Cargo.lock"
+      - "**/Cargo.toml"
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

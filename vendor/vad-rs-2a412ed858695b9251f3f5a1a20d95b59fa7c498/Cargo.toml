@@ -1,0 +1,30 @@
+[workspace]
+members = ["examples/whisper"]
+
+[package]
+name = "vad-rs"
+version = "0.1.6"
+edition = "2021"
+description = "Speech detection using silero vad in Rust"
+license = "MIT"
+
+[dependencies]
+eyre = "0.6.12"
+ndarray = "0.17"
+ort = "=2.0.0-rc.12"
+samplerate = { version = "0.2.4", optional = true }
+ebur128 = { version = "0.1.9", optional = true }
+ringbuffer = "0.15.0"
+
+[dev-dependencies]
+hound = { version = "3.5.1" }
+cpal = "0.15.3"
+once_cell = "1.19.0"
+
+
+[features]
+default = ["helpers"]
+helpers = ["dep:ebur128", "dep:samplerate"]
+coreml = ["ort/coreml"]
+directml = ["ort/directml"]
+load-dynamic = ["ort/load-dynamic"]

@@ -1,0 +1,17 @@
+[package]
+name = "panel-builder-example"
+version = "2.0.0-beta"
+description = "Demonstrates PanelBuilder API for advanced panel configuration"
+authors = ["Victor Aremu <me@victorare.mu>"]
+edition = "2021"
+rust-version = "1.75"
+
+[dependencies]
+tauri = { workspace = true }
+tauri-nspanel = { path = "../../../" }
+
+[build-dependencies]
+tauri-build = { workspace = true }
+
+[features]
+cargo-clippy = []

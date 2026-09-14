@@ -1,0 +1,8 @@
+/target
+/Cargo.lock
+/node_modules
+
+.pnpm-debug.log
+
+.direnv
+.bacon-locations

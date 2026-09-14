@@ -1,0 +1,42 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - v2.1
+      - v2
+      - v1
+  pull_request:
+    branches:
+      - v2.1
+      - v2
+      - v1
+    paths-ignore:
+      - "webview-src/**"
+      - "webview-dist/**"
+      - "examples/**"
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Run tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --manifest-path=Cargo.toml --release --lib --bins

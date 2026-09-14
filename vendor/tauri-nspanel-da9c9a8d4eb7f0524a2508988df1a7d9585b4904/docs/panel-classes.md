@@ -1,0 +1,148 @@
+# Panel Classes
+
+Panel classes define the behavior and characteristics of your panels. They're created using the `tauri_panel!` macro.
+
+## Basic panel definition
+
+```rust
+use tauri_nspanel::tauri_panel;
+
+tauri_panel! {
+    panel!(MyPanel {
+        config: {
+            can_become_key_window: true,
+            can_become_main_window: false,
+            is_floating_panel: true
+        }
+    })
+}
+```
+
+## Understanding the `panel!` Macro
+
+The `panel!` macro creates a custom NSPanel subclass with specified behaviors:
+
+### Config block
+
+The `config` block allows you to override NSPanel methods that return boolean values:
+
+```rust
+panel!(AdvancedPanel {
+    config: {
+        can_become_key_window: true,        // Can receive keyboard input
+        can_become_main_window: false,      // Can't be the main window
+        becomes_key_only_if_needed: true,    // Only becomes key when needed
+        is_floating_panel: true,           // Floats above other windows
+        works_when_modal: true,            // Works with modal dialogs
+        hides_on_deactivate: false         // Doesn't hide when app deactivates
+    }
+})
+```
+
+### With block (optional)
+
+The `with` block provides additional configurations like mouse tracking:
+
+```rust
+panel!(InteractivePanel {
+    config: {
+        can_become_key_window: true
+    }
+    with: {
+        tracking_area: {
+            options: TrackingAreaOptions::new()
+                .active_always()
+                .mouse_entered_and_exited()
+                .mouse_moved(),
+            auto_resize: true
+        }
+    }
+})
+```
+
+## Multiple panels in one block
+
+You can define multiple panel classes and event handlers together:
+
+```rust
+#![allow(clippy::unused_unit)]
+
+tauri_panel! {
+    panel!(MainPanel {
+        config: {
+            can_become_key_window: true,
+            can_become_main_window: false
+        }
+    })
+    
+    panel!(FloatingPanel {
+        config: {
+            is_floating_panel: true,
+            can_become_key_window: false
+        }
+    })
+    
+    panel_event!(PanelEventHandler {
+        window_did_become_key(notification: &NSNotification) -> (),
+        window_did_resign_key(notification: &NSNotification) -> ()
+    })
+}
+```
+
+## Converting existing windows
+
+You can convert existing Tauri windows to your custom panel types:
+
+```rust
+use tauri::Manager;
+use tauri_nspanel::WebviewWindowExt;
+
+// Convert existing window to custom panel type
+let window = app.get_webview_window("main").unwrap();
+let panel = window.to_panel::<MyPanel>()?;
+panel.show();
+```
+
+## Common panel configurations
+
+### Tool palette
+```rust
+panel!(ToolPalette {
+    config: {
+        can_become_key_window: false,
+        is_floating_panel: true,
+        becomes_key_only_if_needed: true,
+        hides_on_deactivate: false
+    }
+})
+```
+
+### Inspector panel
+```rust
+panel!(Inspector {
+    config: {
+        can_become_key_window: true,
+        can_become_main_window: false,
+        is_floating_panel: false,
+        works_when_modal: true
+    }
+})
+```
+
+### HUD display
+```rust
+panel!(HUD {
+    config: {
+        can_become_key_window: false,
+        can_become_main_window: false,
+        is_floating_panel: true,
+        hides_on_deactivate: false
+    }
+})
+```
+
+## Next steps
+
+- [Learn about the PanelBuilder](panel-builder.md)
+- [Handle Panel Events](event-handling.md)
+- [Explore Panel Methods](panel-methods.md)
