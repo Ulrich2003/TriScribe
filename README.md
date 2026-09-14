@@ -18,6 +18,10 @@
 </p>
 
 <p align="center">
+  <a href="https://chuanyangchen.ink/triscribe.html"><strong>🌐 访问 TriScribe 产品官网 · 查看功能与下载</strong></a>
+</p>
+
+<p align="center">
   <a href="../../releases/latest/download/TriScribe_0.1.6_macOS_AppleSilicon.dmg"><strong>⬇️ 下载 macOS Apple 芯片版</strong></a>
   ·
   <a href="../../releases/latest/download/TriScribe_0.1.6_Windows_x64_Setup.exe"><strong>⬇️ 下载 Windows x64 版</strong></a>
@@ -168,7 +172,7 @@ TriScribe 由 **陈传扬（Chen Chuanyang）** 维护。
 <details>
 <summary><strong>English summary</strong></summary>
 
-TriScribe is a free, offline-first desktop dictation app for Mandarin, Hong Kong Cantonese, English, and everyday code-switching. It supports global hotkeys, spoken punctuation, Simplified/Traditional Chinese output, local filler-word cleanup, custom terminology, and optional OpenAI-compatible post-processing.
+TriScribe is a free, offline-first desktop dictation app for Mandarin, Hong Kong Cantonese, English, and everyday code-switching. It supports global hotkeys, spoken punctuation, Simplified/Traditional Chinese output, local filler-word cleanup, custom terminology, and optional OpenAI-compatible post-processing. Visit the [TriScribe product website](https://chuanyangchen.ink/triscribe.html) for an overview and downloads.
 
 The current downloadable beta supports Apple Silicon Macs and Windows 10/11 x64 PCs. Audio and transcripts stay local by default. See the privacy section above for the exact network boundary.
 
